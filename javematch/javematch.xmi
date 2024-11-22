@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml>
+    <package name="javematch/src/main/java/gajudama/javematch">
+        <class name="Amistad">
+            <attribute name="Amistad_id" type="Long" visibility="private"/>
+            <attribute name="usuarioAmistad" type="Usuario" visibility="private"/>
+            <attribute name="amigoUsuario" type="Usuario" visibility="private"/>
+            <operation name="createAmistad" returnType="Amistad">
+                <parameter name="amistad" type="Amistad"/>
+            </operation>
+            <operation name="getAmistadById" returnType="Optional<Amistad>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateAmistad" returnType="Amistad">
+                <parameter name="id" type="Long"/>
+                <parameter name="amistadDetails" type="Amistad"/>
+            </operation>
+            <operation name="deleteAmistad" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllAmistades" returnType="List<Amistad>"/>
+            <operation name="confirmFriendship" returnType="Amistad">
+                <parameter name="matchId" type="Long"/>
+                <parameter name="isFriend" type="Boolean"/>
+            </operation>
+        </class>
+        
+        <class name="Interes">
+            <attribute name="interesId" type="Long" visibility="private"/>
+            <attribute name="nombre" type="String" visibility="private"/>
+            <attribute name="usuarios" type="List<Usuario>" visibility="private"/>
+            <operation name="createInteres" returnType="Interes">
+                <parameter name="interes" type="Interes"/>
+            </operation>
+            <operation name="getInteresById" returnType="Optional<Interes>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateInteres" returnType="Interes">
+                <parameter name="id" type="Long"/>
+                <parameter name="interesDetails" type="Interes"/>
+            </operation>
+            <operation name="deleteInteres" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllIntereses" returnType="List<Interes>"/>
+        </class>
+
+        <class name="Juego">
+            <attribute name="Juego_id" type="Long" visibility="private"/>
+            <attribute name="nombre" type="String" visibility="private"/>
+            <attribute name="videollamadas" type="List<Videollamada>" visibility="private"/>
+            <operation name="createJuego" returnType="Juego">
+                <parameter name="juego" type="Juego"/>
+            </operation>
+            <operation name="getJuegoById" returnType="Optional<Juego>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateJuego" returnType="Juego">
+                <parameter name="id" type="Long"/>
+                <parameter name="juegoDetails" type="Juego"/>
+            </operation>
+            <operation name="deleteJuego" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllJuegos" returnType="List<Juego>"/>
+        </class>
+
+        <class name="Notificacion">
+            <attribute name="Notificacion_id" type="Long" visibility="private"/>
+            <attribute name="mensaje" type="String" visibility="private"/>
+            <attribute name="fechaEnvio" type="Date" visibility="private"/>
+            <attribute name="estadoLectura" type="Boolean" visibility="private"/>
+            <attribute name="usuarioNotificado" type="Usuario" visibility="private"/>
+            <operation name="createNotificacion" returnType="Notificacion">
+                <parameter name="notificacion" type="Notificacion"/>
+            </operation>
+            <operation name="getNotificacionById" returnType="Optional<Notificacion>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateNotificacion" returnType="Notificacion">
+                <parameter name="id" type="Long"/>
+                <parameter name="notificacionDetails" type="Notificacion"/>
+            </operation>
+            <operation name="deleteNotificacion" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllNotificaciones" returnType="List<Notificacion>"/>
+            <operation name="sendNotification" returnType="void">
+                <parameter name="usuarioId" type="Long"/>
+                <parameter name="mensaje" type="String"/>
+                <parameter name="isRead" type="Boolean"/>
+            </operation>
+            <operation name="sendFriendRequestNotification" returnType="void">
+                <parameter name="usuarioId" type="Long"/>
+                <parameter name="likedUsuarioId" type="Long"/>
+            </operation>
+            <operation name="sendMatchNotification" returnType="void">
+                <parameter name="usuarioNotificadoId" type="Long"/>
+                <parameter name="mensaje" type="String"/>
+            </operation>
+        </class>
+
+        <class name="Plan">
+            <attribute name="Plan_id" type="Long" visibility="private"/>
+            <attribute name="nombre" type="String" visibility="private"/>
+            <attribute name="maxLikes" type="Integer" visibility="private"/>
+            <attribute name="usuarios" type="List<Usuario>" visibility="private"/>
+            <operation name="createPlan" returnType="Plan">
+                <parameter name="plan" type="Plan"/>
+            </operation>
+            <operation name="getPlanById" returnType="Optional<Plan>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updatePlan" returnType="Plan">
+                <parameter name="id" type="Long"/>
+                <parameter name="planDetails" type="Plan"/>
+            </operation>
+            <operation name="deletePlan" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllPlanes" returnType="List<Plan>"/>
+        </class>
+
+        <class name="Reporte">
+            <attribute name="Reporte_id" type="Long" visibility="private"/>
+            <attribute name="autor" type="Usuario" visibility="private"/>
+            <attribute name="reportado" type="Usuario" visibility="private"/>
+            <attribute name="tipo" type="String" visibility="private"/>
+            <attribute name="descripcion" type="String" visibility="private"/>
+            <attribute name="fechaRep" type="Date" visibility="private"/>
+            <attribute name="videollamada_Reports" type="Videollamada" visibility="private"/>
+            <operation name="createReporte" returnType="Reporte">
+                <parameter name="reporte" type="Reporte"/>
+            </operation>
+            <operation name="getReporteById" returnType="Optional<Reporte>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateReporte" returnType="Reporte">
+                <parameter name="id" type="Long"/>
+                <parameter name="reporteDetails" type="Reporte"/>
+            </operation>
+            <operation name="deleteReporte" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllReportes" returnType="List<Reporte>"/>
+            <operation name="createReport" returnType="Reporte">
+                <parameter name="autorId" type="Long"/>
+                <parameter name="reportadoId" type="Long"/>
+                <parameter name="tipo" type="String"/>
+                <parameter name="descripcion" type="String"/>
+                <parameter name="videollamadaId" type="Long"/>
+            </operation>
+        </class>
+
+        <class name="UserMatch">
+            <attribute name="UserMatchId" type="Long" visibility="private"/>
+            <attribute name="user1" type="Usuario" visibility="private"/>
+            <attribute name="user2" type="Usuario" visibility="private"/>
+            <attribute name="fechaMatch" type="Date" visibility="private"/>
+            <attribute name="amistad" type="Boolean" visibility="private"/>
+            <attribute name="videollamada_Match" type="Videollamada" visibility="private"/>
+            <operation name="createMatch" returnType="UserMatch">
+                <parameter name="match" type="UserMatch"/>
+            </operation>
+            <operation name="getMatchById" returnType="Optional<UserMatch>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateMatch" returnType="UserMatch">
+                <parameter name="id" type="Long"/>
+                <parameter name="matchDetails" type="UserMatch"/>
+            </operation>
+            <operation name="deleteMatch" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllMatches" returnType="List<UserMatch>"/>
+            <operation name="createMatch" returnType="UserMatch">
+                <parameter name="usuarioId" type="Long"/>
+                <parameter name="likedUsuarioId" type="Long"/>
+            </operation>
+            <operation name="randomMatch" returnType="UserMatch">
+                <parameter name="usuarioId" type="Long"/>
+            </operation>
+            <operation name="getMutualMatches" returnType="List<UserMatch>">
+                <parameter name="userId" type="Long"/>
+            </operation>
+        </class>
+
+        <class name="Usuario">
+            <attribute name="userId" type="Long" visibility="private"/>
+            <attribute name="nombre" type="String" visibility="private"/>
+            <attribute name="correo" type="String" visibility="private"/>
+            <attribute name="matchesAsUser1" type="List<UserMatch>" visibility="private"/>
+            <attribute name="matchesAsUser2" type="List<UserMatch>" visibility="private"/>
+            <attribute name="reportsAuthored" type="List<Reporte>" visibility="private"/>
+            <attribute name="reportsReceived" type="List<Reporte>" visibility="private"/>
+            <attribute name="friendshipsAsUser" type="List<Amistad>" visibility="private"/>
+            <attribute name="friendshipsAsFriend" type="List<Amistad>" visibility="private"/>
+            <attribute name="intereses" type="List<Interes>" visibility="private"/>
+            <attribute name="notifications" type="List<Notificacion>" visibility="private"/>
+            <attribute name="plan" type="Plan" visibility="private"/>
+            <operation name="createUsuario" returnType="Usuario">
+                <parameter name="usuario" type="Usuario"/>
+            </operation>
+            <operation name="getUsuarioById" returnType="Optional<Usuario>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateUsuario" returnType="Usuario">
+                <parameter name="id" type="Long"/>
+                <parameter name="usuarioDetails" type="Usuario"/>
+            </operation>
+            <operation name="deleteUsuario" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllUsuarios" returnType="List<Usuario>"/>
+            <operation name="updateMatchesAsUser1" returnType="Usuario">
+                <parameter name="id" type="Long"/>
+                <parameter name="matchesAsUser1" type="List<UserMatch>"/>
+            </operation>
+            <operation name="updateMatchesAsUser2" returnType="Usuario">
+                <parameter name="id" type="Long"/>
+                <parameter name="matchesAsUser2" type="List<UserMatch>"/>
+            </operation>
+            <operation name="updateFriendshipsAsUser" returnType="Usuario">
+                <parameter name="id" type="Long"/>
+                <parameter name="friendshipsAsUser" type="List<Amistad>"/>
+            </operation>
+            <operation name="updateFriendshipsAsFriend" returnType="Usuario">
+                <parameter name="id" type="Long"/>
+                <parameter name="friendshipsAsFriend" type="List<Amistad>"/>
+            </operation>
+            <operation name="registerUsuario" returnType="Usuario">
+                <parameter name="usuario" type="Usuario"/>
+            </operation>
+            <operation name="loginUsuario" returnType="Optional<Usuario>">
+                <parameter name="correo" type="String"/>
+            </operation>
+            <operation name="upgradePlan" returnType="Usuario">
+                <parameter name="usuarioId" type="Long"/>
+                <parameter name="planId" type="Long"/>
+            </operation>
+            <operation name="addInteres" returnType="Usuario">
+                <parameter name="usuarioId" type="Long"/>
+                <parameter name="interes" type="Interes"/>
+            </operation>
+            <operation name="findUsersWithMatchingInterests" returnType="List<Usuario>">
+                <parameter name="usuarioId" type="Long"/>
+            </operation>
+            <operation name="getRandomUsuario" returnType="Usuario"/>
+            <operation name="findById" returnType="Optional<Usuario>">
+                <parameter name="userId" type="Long"/>
+            </operation>
+        </class>
+
+        <class name="Videollamada">
+            <attribute name="Videollamada_id" type="Long" visibility="private"/>
+            <attribute name="fechaVideollamada" type="Date" visibility="private"/>
+            <attribute name="estado" type="String" visibility="private"/>
+            <attribute name="duracion" type="Integer" visibility="private"/>
+            <attribute name="juegos" type="List<Juego>" visibility="private"/>
+            <attribute name="matches" type="List<UserMatch>" visibility="private"/>
+            <attribute name="reportes" type="List<Reporte>" visibility="private"/>
+            <operation name="createVideollamada" returnType="Videollamada">
+                <parameter name="videollamada" type="Videollamada"/>
+            </operation>
+            <operation name="getVideollamadaById" returnType="Optional<Videollamada>">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="updateVideollamada" returnType="Videollamada">
+                <parameter name="id" type="Long"/>
+                <parameter name="videollamadaDetails" type="Videollamada"/>
+            </operation>
+            <operation name="deleteVideollamada" returnType="void">
+                <parameter name="id" type="Long"/>
+            </operation>
+            <operation name="getAllVideollamadas" returnType="List<Videollamada>"/>
+            <operation name="createVideollamada" returnType="Videollamada">
+                <parameter name="match" type="UserMatch"/>
+            </operation>
+        </class>
+
+        <!-- Associations -->
+        <association source="Usuario" target="UserMatch" multiplicity="0..*">
+            <role name="matchesAsUser1 / matchesAsUser2"/>
+        </association>
+        <association source="Usuario" target="Reporte" multiplicity="0..*">
+            <role name="reportsAuthored / reportsReceived"/>
+        </association>
+        <association source="Usuario" target="Amistad" multiplicity="0..*">
+            <role name="friendshipsAsUser / friendshipsAsFriend"/>
+        </association>
+        <association source="Usuario" target="Notificacion" multiplicity="0..*">
+            <role name="notifications"/>
+        </association>
+        <association source="Usuario" target="Plan" multiplicity="1">
+            <role name="plan"/>
+        </association>
+        
+        <association source="Amistad" target="Usuario" multiplicity="1">
+            <role name="usuarioAmistad"/>
+        </association>
+        <association source="Amistad" target="Usuario" multiplicity="1">
+            <role name="amigoUsuario"/>
+        </association>
+
+        <association source="Interes" target="Usuario" multiplicity="0..*">
+            <role name="usuarios"/>
+        </association>
+
+        <association source="Juego" target="Videollamada" multiplicity="0..*">
+            <role name="videollamadas"/>
+        </association>
+
+        <association source="Notificacion" target="Usuario" multiplicity="1">
+            <role name="usuarioNotificado"/>
+        </association>
+
+        <association source="Plan" target="Usuario" multiplicity="0..*">
+            <role name="usuarios"/>
+        </association>
+
+        <association source="Reporte" target="Usuario" multiplicity="1">
+            <role name="autor"/>
+        </association>
+        <association source="Reporte" target="Usuario" multiplicity="1">
+            <role name="reportado"/>
+        </association>
+        <association source="Reporte" target="Videollamada" multiplicity="0..1">
+            <role name="videollamadaReports"/>
+        </association>
+
+        <association source="UserMatch" target="Usuario" multiplicity="1">
+            <role name="user1"/>
+        </association>
+        <association source="UserMatch" target="Usuario" multiplicity="1">
+            <role name="user2"/>
+        </association>
+        <association source="UserMatch" target="Videollamada" multiplicity="0..1">
+            <role name="videollamadaMatch"/>
+        </association>
+
+        <association source="Videollamada" target="Juego" multiplicity="0..*">
+            <role name="juegos"/>
+        </association>
+        <association source="Videollamada" target="UserMatch" multiplicity="0..*">
+            <role name="matches"/>
+        </association>
+        <association source="Videollamada" target="Reporte" multiplicity="0..*">
+            <role name="reportes"/>
+        </association>
+    </package>
+</uml>
